@@ -3,9 +3,9 @@ Code fully based on https://github.com/sjchoi86/yet-another-mujoco-tutorial-v2
 '''
 
 import os
+import mujoco.viewer
 import numpy as np
 import mujoco
-import mujoco_viewer
 
 from src.util import r2w,rpy2r,trim_scale
 
@@ -115,9 +115,8 @@ class MuJoCoParserClass(object):
             Initialize viewer
         """
         self.USE_MUJOCO_VIEWER = True
-        self.viewer = mujoco_viewer.MujocoViewer(
-                self.model,self.data,mode='window',title=viewer_title,
-                width=viewer_width,height=viewer_height,hide_menus=viewer_hide_menus)
+        self.viewer = mujoco.viewer.launch_passive(
+                self.model,self.data)
 
     def update_viewer(self,azimuth=None,distance=None,elevation=None,lookat=None,
                       VIS_TRANSPARENT=None,VIS_CONTACTPOINT=None,
@@ -221,7 +220,7 @@ class MuJoCoParserClass(object):
         """
         if self.USE_MUJOCO_VIEWER:
             if ((self.render_tick % render_every) == 0) or (self.render_tick == 0):
-                self.viewer.render()
+                self.viewer.sync()
             self.render_tick = self.render_tick + 1
         else:
             print ("[%s] Viewer NOT initialized."%(self.name))

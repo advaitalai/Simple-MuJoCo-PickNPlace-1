@@ -15,7 +15,8 @@ def main():
     # MuJoCo Panda parsing
     xml_path = 'asset/panda/franka_panda_w_objs.xml'
     env = MuJoCoParserClass(name='Panda', rel_xml_path=xml_path, VERBOSE=False)
-    # env.print_info()
+    
+    env.print_info()
 
     env.forward()
 
@@ -98,7 +99,7 @@ def main():
         elif current_task == "release":
             desired_q = set_gripper(desired_q, option="open")
 
-        print(f"[{env.tick}] current_task : {current_task}\t task_sequnce_idx : {task_sequnce_idx}\t rot_idx : {rot_idx}")
+        # print(f"[{env.tick}] current_task : {current_task}\t task_sequnce_idx : {task_sequnce_idx}\t rot_idx : {rot_idx}")
         PID.update(x_trgt=desired_q)
         PID.update(t_curr=env.get_sim_time(), x_curr=env.get_q(joint_idxs=env.ctrl_joint_idxs), VERBOSE=False)
         torque = PID.out()

@@ -6,6 +6,7 @@ import os
 import mujoco.viewer
 import numpy as np
 import mujoco
+import pprint
 
 from src.util import r2w,rpy2r,trim_scale
 
@@ -84,30 +85,30 @@ class MuJoCoParserClass(object):
         """
             Printout model information
         """
-        print ("n_body:[%d]"%(self.n_geom))
-        print ("geom_names:%s"%(self.geom_names))
-        print ("n_body:[%d]"%(self.n_body))
-        print ("body_names:%s"%(self.body_names))
-        print ("n_joint:[%d]"%(self.n_joint))
-        print ("joint_names:%s"%(self.joint_names))
-        print ("joint_types:%s"%(self.joint_types))
-        print ("joint_ranges:\n%s"%(self.joint_ranges))
-        print ("n_rev_joint:[%d]"%(self.n_rev_joint))
-        print ("rev_joint_idxs:%s"%(self.rev_joint_idxs))
-        print ("rev_joint_names:%s"%(self.rev_joint_names))
-        print ("rev_joint_mins:%s"%(self.rev_joint_mins))
-        print ("rev_joint_maxs:%s"%(self.rev_joint_maxs))
-        print ("rev_joint_ranges:%s"%(self.rev_joint_ranges))
-        print ("n_pri_joint:[%d]"%(self.n_pri_joint))
-        print ("pri_joint_idxs:%s"%(self.pri_joint_idxs))
-        print ("pri_joint_names:%s"%(self.pri_joint_names))
-        print ("pri_joint_mins:%s"%(self.pri_joint_mins))
-        print ("pri_joint_maxs:%s"%(self.pri_joint_maxs))
-        print ("pri_joint_ranges:%s"%(self.pri_joint_ranges))
-        print ("n_ctrl:[%d]"%(self.n_ctrl))
-        print ("ctrl_names:%s"%(self.ctrl_names))
-        print ("ctrl_joint_idxs:%s"%(self.ctrl_joint_idxs))
-        print ("ctrl_ranges:\n%s"%(self.ctrl_ranges))
+        pprint.pprint ("n_body:[%d]"%(self.n_geom))
+        pprint.pprint ("geom_names:%s"%(self.geom_names))
+        pprint.pprint ("n_body:[%d]"%(self.n_body))
+        pprint.pprint ("body_names:%s"%(self.body_names))
+        pprint.pprint ("n_joint:[%d]"%(self.n_joint))
+        pprint.pprint ("joint_names:%s"%(self.joint_names))
+        pprint.pprint ("joint_types:%s"%(self.joint_types))
+        pprint.pprint ("joint_ranges:\n%s"%(self.joint_ranges))
+        pprint.pprint ("n_rev_joint:[%d]"%(self.n_rev_joint))
+        pprint.pprint ("rev_joint_idxs:%s"%(self.rev_joint_idxs))
+        pprint.pprint ("rev_joint_names:%s"%(self.rev_joint_names))
+        pprint.pprint ("rev_joint_mins:%s"%(self.rev_joint_mins))
+        pprint.pprint ("rev_joint_maxs:%s"%(self.rev_joint_maxs))
+        pprint.pprint ("rev_joint_ranges:%s"%(self.rev_joint_ranges))
+        pprint.pprint ("n_pri_joint:[%d]"%(self.n_pri_joint))
+        pprint.pprint ("pri_joint_idxs:%s"%(self.pri_joint_idxs))
+        pprint.pprint ("pri_joint_names:%s"%(self.pri_joint_names))
+        pprint.pprint ("pri_joint_mins:%s"%(self.pri_joint_mins))
+        pprint.pprint ("pri_joint_maxs:%s"%(self.pri_joint_maxs))
+        pprint.pprint ("pri_joint_ranges:%s"%(self.pri_joint_ranges))
+        pprint.pprint ("n_ctrl:[%d]"%(self.n_ctrl))
+        pprint.pprint ("ctrl_names:%s"%(self.ctrl_names))
+        pprint.pprint ("ctrl_joint_idxs:%s"%(self.ctrl_joint_idxs))
+        pprint.pprint ("ctrl_ranges:\n%s"%(self.ctrl_ranges))
 
 
     def init_viewer(self,viewer_title='MuJoCo',viewer_width=1200,viewer_height=800,viewer_hide_menus=True):
